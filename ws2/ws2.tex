@@ -227,6 +227,8 @@
 % When problems are long, it may be desirable to put a \newpage or a
 % \clearpage before each homeworkProblem environment
 
+I worked with David Vartanyan (my partner) and John Pharo on this worksheet. It took about five hours total time.
+
 \subsection{1. An Unstable Calculation}
 
 \begin{table}[H]
@@ -321,6 +323,10 @@ f(x-h) = f(x) - h f'(x) + \frac{h^2}{2} f''(x) - \frac{h^3}{6} f'''(x) + \mathca
  \includegraphics[width=\textwidth]{problem5_fig2.pdf}
  \caption{Apparent magnitude versus time for a Cepheid star. Actual measurements are represented as black points. Drawn in red is a cubic spline interpolation through the data.}
 \end{figure} 
+
+\subsection{Comments on the Various Interpolations}
+
+The Lagrange interpolation looks nice in the middle of the data, but near the ends it clearly becomes pathologically oscillatory, which is unreasonable. Linear interpolation is more reasonable, but quadratic interpolation is even nicer-looking. Cubic Hermite interpolation looks a little unnatural, with jerky changes within the intervals. The nicest-looking and more reasonable interpolation here is cubic spline.
 
 \end{spacing}
 \end{document}
