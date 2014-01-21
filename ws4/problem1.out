@@ -1,0 +1,27 @@
+
+Eccentricity e = 0.0167, E in (0, 2*pi)
+
+Day 91: 	E = 1.582, (x, y) = (-0.011, 1.000);
+		55 iterations required.
+Day 182: 	E = 3.131, (x, y) = (-1.000, 0.011);
+		52 iterations required.
+Day 273: 	E = 4.679, (x, y) = (-0.033, -0.999);
+		53 iterations required.
+
+Eccentricity e = 0.99999, E in (0, 2*pi)
+
+Day 91: 	E = 2.307, (x, y) = (-0.671, 0.003);
+		54 iterations required.
+Day 182: 	E = 3.136, (x, y) = (-1.000, 0.000);
+		52 iterations required.
+Day 273: 	E = 3.964, (x, y) = (-0.681, -0.003);
+		53 iterations required.
+
+Eccentricity e = 0.99999, E in (pi/2, 3*pi/2)
+
+Day 91: 	E = 2.307, (x, y) = (-0.671, 0.003);
+		53 iterations required.
+Day 182: 	E = 3.136, (x, y) = (-1.000, 0.000);
+		51 iterations required.
+Day 273: 	E = 3.964, (x, y) = (-0.681, -0.003);
+		52 iterations required.

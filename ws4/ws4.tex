@@ -1,0 +1,278 @@
+	
+% This template from http://www.vel.co.nz, originally from http://www.tedpavlic.com
+
+\documentclass{article}
+% Change "article" to "report" to get rid of page number on title page
+\usepackage{amsmath,amsfonts,amsthm,amssymb, mathrsfs}
+\usepackage{bigints}
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{textcomp}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\usepackage{mdframed}
+
+% In case you need to adjust margins:
+\topmargin=-0.45in      %
+\evensidemargin=0in     %
+\oddsidemargin=0in      %
+\textwidth=6.5in        %
+\textheight=9.0in       %
+\headsep=0.25in         %
+
+% Homework Specific Information
+\newcommand{\hmwkTitle}{WS4}
+\newcommand{\hmwkDueDate}{}
+\newcommand{\hmwkClass}{Ay\ 190}
+\newcommand{\hmwkAuthorName}{Cutter\ Coryell}
+
+% Setup the header and footer
+\pagestyle{fancy}                                                       %
+\lhead{\hmwkAuthorName}                                                 %
+\chead{\hmwkClass\ : \hmwkTitle}  %
+\rhead{\hmwkDueDate}                                                     %
+\renewcommand\headrulewidth{0.4pt}                                      %
+\renewcommand\footrulewidth{0.4pt}                                      %
+
+% This is used to trace down (pin point) problems
+% in latexing a document:
+%\tracingall
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some tools
+\newcommand{\enterProblemHeader}[1]{\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak%
+                                    \nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak}%
+\newcommand{\exitProblemHeader}[1]{\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak%
+                                   \nobreak\extramarks{#1}{}\nobreak}%
+
+\newlength{\labelLength}
+\newcommand{\labelAnswer}[2]
+  {\settowidth{\labelLength}{#1}%
+   \addtolength{\labelLength}{0.25in}%
+   \changetext{}{-\labelLength}{}{}{}%
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#2\end{minipage}}%
+   \marginpar{\fbox{#1}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   \changetext{}{+\labelLength}{}{}{}}%
+
+\setcounter{secnumdepth}{0}
+\newcommand{\homeworkProblemName}{}%
+\newcounter{homeworkProblemCounter}%
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]%
+  {\stepcounter{homeworkProblemCounter}%
+   \renewcommand{\homeworkProblemName}{#1}%
+   \section{\homeworkProblemName}%
+   \enterProblemHeader{\homeworkProblemName}}%
+  {\exitProblemHeader{\homeworkProblemName}}%
+
+\newcommand{\problemAnswer}[1]
+  {\noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}}%
+
+\newcommand{\problemLAnswer}[1]
+  {\labelAnswer{\homeworkProblemName}{#1}}
+
+\newcommand{\homeworkSectionName}{}%
+\newlength{\homeworkSectionLabelLength}{}%
+\newenvironment{homeworkSection}[1]%
+  {% We put this space here to make sure we're not connected to the above.
+   % Otherwise the changetext can do funny things to the other margin
+
+   \renewcommand{\homeworkSectionName}{#1}%
+   \settowidth{\homeworkSectionLabelLength}{\homeworkSectionName}%
+   \addtolength{\homeworkSectionLabelLength}{0.25in}%
+   \changetext{}{-\homeworkSectionLabelLength}{}{}{}%
+   \subsection{\homeworkSectionName}%
+   \enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]}}%
+  {\enterProblemHeader{\homeworkProblemName}%
+
+   % We put the blank space above in order to make sure this margin
+   % change doesn't happen too soon (otherwise \sectionAnswer's can
+   % get ugly about their \marginpar placement.
+   \changetext{}{+\homeworkSectionLabelLength}{}{}{}}%
+
+\newcommand{\sectionAnswer}[1]
+  {% We put this space here to make sure we're disconnected from the previous
+   % passage
+
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}%
+   \enterProblemHeader{\homeworkProblemName}\exitProblemHeader{\homeworkProblemName}%
+   \marginpar{\fbox{\homeworkSectionName}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   }%
+
+\newenvironment{myindentpar}[1]%
+ {\begin{list}{}%
+         {\setlength{\leftmargin}{#1}}%
+         \item[]%
+ }
+ {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make title
+\title{\vspace{2in}\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}\vspace{3in}}
+\date{}
+\author{\textbf{\hmwkAuthorName}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% MY COMMANDS %%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\deri}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\pderi}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\inte}[4]{\int_{#1}^{#2} \! #3 \, \mathrm{d} #4}
+\newcommand{\ointe}[4]{\oint_{#1}^{#2} \! #3 \, \mathrm{d} #4}
+\newcommand{\del}{\nabla}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\ee}[1]{\times 10^{#1}}
+\newcommand{\fpe}{\frac{1}{4 \pi \epsilon_0}}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\cket}[1]{\left. #1 \right>}
+
+
+% Distance units
+\newcommand{\m}[0]{\text{\ m}}
+\newcommand{\cm}[0]{\text{\ cm}}
+\newcommand{\km}[0]{\text{\ km}}
+\newcommand{\pc}[0]{\text{\ pc}}
+\newcommand{\kpc}[0]{\text{\ kpc}}
+\newcommand{\Mpc}[0]{\text{\ Mpc}}
+\newcommand{\Gpc}[0]{\text{\ Gpc}}
+\newcommand{\lyr}[0]{\text{\ lyr}}
+\newcommand{\Rs}[0]{R_\odot}
+
+% Mass units
+\newcommand{\g}[0]{\text{\ g}}
+\newcommand{\kg}[0]{\text{\ kg}}
+\newcommand{\Ms}[0]{M_\odot}
+
+% Time units
+\newcommand{\s}[0]{\text{\ s}}
+\newcommand{\days}[0]{\text{\ days}}
+\newcommand{\yr}[0]{\text{\ yr}}
+\newcommand{\Hz}[0]{\text{\ Hz}}
+\newcommand{\kHz}[0]{\text{\ kHz}}
+\newcommand{\MHz}[0]{\text{\ MHz}}
+\newcommand{\GHz}[0]{\text{\ GHz}}
+\newcommand{\THz}[0]{\text{\ THz}}
+
+% Energy units
+\newcommand{\erg}[0]{\text{\ erg}}
+\newcommand{\J}[0]{\text{\ J}}
+\newcommand{\eV}[0]{\text{\ eV}}
+\newcommand{\meV}[0]{\text{\ meV}}
+\newcommand{\keV}[0]{\text{\ keV}}
+\newcommand{\MeV}[0]{\text{\ MeV}}
+\newcommand{\GeV}[0]{\text{\ GeV}}
+\newcommand{\TeV}[0]{\text{\ TeV}}
+
+% Force units
+\newcommand{\N}[0]{\text{\ N}}
+\newcommand{\dyn}[0]{\text{\ dyn}}
+
+% Power units
+\newcommand{\W}[0]{\text{\ W}}
+\newcommand{\Ls}[0]{L_\odot}
+
+% Temperature units
+\newcommand{\K}[0]{\text{\ K}}
+\newcommand{\degC}[0]{\text{\ \(^\circ\)C}}
+\newcommand{\degF}[0]{\text{\ \(^\circ\)F}}
+
+% Electromagnetic units
+\newcommand{\V}[0]{\text{\ V}}
+\newcommand{\kV}[0]{\text{\ kV}}
+\newcommand{\C}[0]{\text{\ C}}
+\newcommand{\esu}[0]{\text{\ esu}}
+\newcommand{\T}[0]{\text{\ T}}
+\newcommand{\G}[0]{\text{\ G}}
+
+
+\newcount\colveccount
+\newcommand*\colvec[1]{
+        \global\colveccount#1
+        \begin{pmatrix}
+        \colvecnext
+}
+\def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+                \\
+                \expandafter\colvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{spacing}{1.1}
+
+\newpage
+
+% When problems are long, it may be desirable to put a \newpage or a
+% \clearpage before each homeworkProblem environment
+
+I worked with David Vartanyan (my partner) and John Pharo on this worksheet. It took about \(10^{14}\) transitions between the two energy levels of the cesium-133 atom (4 hours).
+
+\subsection{Root Finding: Eccentricity Anomality}
+
+\noindent (a) I implemented the bisection method to solve \(0 = E - \omega t - e \sin E\) for \(E\) for different values of \(t\). For this part, the eccentricity \(e = 0.0167\). The fractional error in \(E\) from one computation to the next is set to be less than \(10^{-10}\) before the computation terminates. Because \(E\) is an angle \(\in [0, 2\pi]\), I set the initial interval for the bisection method to \(\in [0, 2\pi]\). The resulting values of \(E\) can then be used to compute \(x(E)\) and \(y(E)\). The results are as follows: \\
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Day & \(E\) & \(x\) [AU] & \(y\) [AU] & Iterations required \\
+\hline
+91 & 1.582 & -0.011 & 1.000 & 55 \\
+182 & 3.131 & -1.000 & 0.011 & 52 \\
+273 & 4.679 & -0.033 & -0.999 & 53 \\
+\hline
+\end{tabular} \\ \\
+
+The bisection method takes many more iterations to find \(E\) for this eccentricity than Newton's method does (about 4). \\
+
+\noindent (b) Now setting \(e = 0.99999\) while keeping everything else the same, we achieve the following results: \\
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Day & \(E\) & \(x\) [AU] & \(y\) [AU] & Iterations required \\
+\hline
+91 & 2.307 & -0.671 & 0.003 & 54 \\
+182 & 3.136 & -1.000 & 0.000 & 52 \\
+273 & 3.964 & -0.681 & -0.003 & 53 \\
+\hline
+\end{tabular} \\ \\
+
+Since \(e\) is very close to 1, \(b / a\) is very close to 0, indicating that the orbit is an ellipse flattened in the \(y\)-direction. Therefore the planet will be close to the \(x\)-axis at all times, corresponding to \(E \simeq 0\) or \(\pi\). Since \(E = 0\) when \(t = 0\), our initial guess for \(E\) is \(\pi\). If we were using Newton's method, we would choose this for our initial iteration point. However, since we are using bisection method, we can only try to decrease the interval size around this guess. Therefore, we use the initial interval \([\frac{\pi}{2}, \frac{3 \pi}{2}]\) to try to speed up the computation. The results are as follows: \\
+
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Day & \(E\) & \(x\) [AU] & \(y\) [AU] & Iterations required \\
+\hline
+91 & 2.307 & -0.671 & 0.003 & 53 \\
+182 & 3.136 & -1.000 & 0.000 & 51 \\
+273 & 3.964 & -0.681 & -0.003 & 52 \\
+\hline
+\end{tabular} \\ \\
+
+Indeed, this sped up our computation: by 1 iteration! This would drastically decrease the number of iterations required for Newton's method, but it doesn't for the bisection method. The reason for this is that the bisection method never stops until the relative error between the function values at the boundaries of our final interval is less than \(10^{-10}\). For this to be the case (except for extreme coincidence), the interval size must be extremely small. This requires halving the initial interval many times. All we have done by changing the starting interval to \([\frac{\pi}{2}, \frac{3 \pi}{2}]\) was halve the interval once already, which should decrease the required number of iterations by 1, and indeed it does.
+
+
+\end{spacing}
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
