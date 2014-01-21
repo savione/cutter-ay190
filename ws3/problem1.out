@@ -1,0 +1,26 @@
+Part A
+
+Relative errors in approximations at 100 grid points:
+Midpoint 	 4.19595546677e-05
+Trapezoidal 	 -8.39180530038e-05
+Simpson's 	 3.52111007018e-10
+
+
+Convergence order:
+Midpoint 	 2.01456788742 (should be 1)
+Trapezoidal 	 2.01455422188 (should be 2)
+Simpson's 	 4.02909033045 (should be 4)
+
+Part B
+
+Relative errors in approximations at 100 grid points:
+Midpoint 	 4.19595546682e-05
+Trapezoidal 	 -8.39180530038e-05
+Simpson's 	 3.5211044459e-10
+
+
+Convergence order:
+Midpoint 	 2.0145678874 (should be 1)
+Trapezoidal 	 2.01455422188 (should be 2)
+Simpson's 	 4.02905577134 (should be 4)
+
