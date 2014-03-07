@@ -1,0 +1,259 @@
+	
+% This template from http://www.vel.co.nz, originally from http://www.tedpavlic.com
+
+\documentclass{article}
+% Change "article" to "report" to get rid of page number on title page
+\usepackage{amsmath,amsfonts,amsthm,amssymb, mathrsfs}
+\usepackage{bigints}
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{textcomp}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+\usepackage{cancel}
+\usepackage{indentfirst}
+\usepackage{mdframed}
+
+% In case you need to adjust margins:
+\topmargin=-0.45in      %
+\evensidemargin=0in     %
+\oddsidemargin=0in      %
+\textwidth=6.5in        %
+\textheight=9.0in       %
+\headsep=0.25in         %
+
+% Homework Specific Information
+\newcommand{\hmwkTitle}{WS13}
+\newcommand{\hmwkDueDate}{}
+\newcommand{\hmwkClass}{Ay\ 190}
+\newcommand{\hmwkAuthorName}{Cutter\ Coryell}
+
+% Setup the header and footer
+\pagestyle{fancy}                                                       %
+\lhead{\hmwkAuthorName}                                                 %
+\chead{\hmwkClass\ : \hmwkTitle}  %
+\rhead{\hmwkDueDate}                                                     %
+\renewcommand\headrulewidth{0.4pt}                                      %
+\renewcommand\footrulewidth{0.4pt}                                      %
+
+% This is used to trace down (pin point) problems
+% in latexing a document:
+%\tracingall
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some tools
+\newcommand{\enterProblemHeader}[1]{\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak%
+                                    \nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak}%
+\newcommand{\exitProblemHeader}[1]{\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak%
+                                   \nobreak\extramarks{#1}{}\nobreak}%
+
+\newlength{\labelLength}
+\newcommand{\labelAnswer}[2]
+  {\settowidth{\labelLength}{#1}%
+   \addtolength{\labelLength}{0.25in}%
+   \changetext{}{-\labelLength}{}{}{}%
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#2\end{minipage}}%
+   \marginpar{\fbox{#1}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   \changetext{}{+\labelLength}{}{}{}}%
+
+\setcounter{secnumdepth}{0}
+\newcommand{\homeworkProblemName}{}%
+\newcounter{homeworkProblemCounter}%
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]%
+  {\stepcounter{homeworkProblemCounter}%
+   \renewcommand{\homeworkProblemName}{#1}%
+   \section{\homeworkProblemName}%
+   \enterProblemHeader{\homeworkProblemName}}%
+  {\exitProblemHeader{\homeworkProblemName}}%
+
+\newcommand{\problemAnswer}[1]
+  {\noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}}%
+
+\newcommand{\problemLAnswer}[1]
+  {\labelAnswer{\homeworkProblemName}{#1}}
+
+\newcommand{\homeworkSectionName}{}%
+\newlength{\homeworkSectionLabelLength}{}%
+\newenvironment{homeworkSection}[1]%
+  {% We put this space here to make sure we're not connected to the above.
+   % Otherwise the changetext can do funny things to the other margin
+
+   \renewcommand{\homeworkSectionName}{#1}%
+   \settowidth{\homeworkSectionLabelLength}{\homeworkSectionName}%
+   \addtolength{\homeworkSectionLabelLength}{0.25in}%
+   \changetext{}{-\homeworkSectionLabelLength}{}{}{}%
+   \subsection{\homeworkSectionName}%
+   \enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]}}%
+  {\enterProblemHeader{\homeworkProblemName}%
+
+   % We put the blank space above in order to make sure this margin
+   % change doesn't happen too soon (otherwise \sectionAnswer's can
+   % get ugly about their \marginpar placement.
+   \changetext{}{+\homeworkSectionLabelLength}{}{}{}}%
+
+\newcommand{\sectionAnswer}[1]
+  {% We put this space here to make sure we're disconnected from the previous
+   % passage
+
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}%
+   \enterProblemHeader{\homeworkProblemName}\exitProblemHeader{\homeworkProblemName}%
+   \marginpar{\fbox{\homeworkSectionName}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   }%
+
+\newenvironment{myindentpar}[1]%
+ {\begin{list}{}%
+         {\setlength{\leftmargin}{#1}}%
+         \item[]%
+ }
+ {\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make title
+\title{\vspace{2in}\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}\vspace{3in}}
+\date{}
+\author{\textbf{\hmwkAuthorName}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%% MY COMMANDS %%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\deri}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\pderi}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\inte}[4]{\int_{#1}^{#2} \! #3 \, \mathrm{d} #4}
+\newcommand{\ointe}[4]{\oint_{#1}^{#2} \! #3 \, \mathrm{d} #4}
+\newcommand{\del}{\nabla}
+\newcommand{\D}{\mathrm{d}}
+\newcommand{\ee}[1]{\times 10^{#1}}
+\newcommand{\fpe}{\frac{1}{4 \pi \epsilon_0}}
+\newcommand{\bra}[1]{\left< #1 \right|}
+\newcommand{\ket}[1]{\left| #1 \right>}
+\newcommand{\cket}[1]{\left. #1 \right>}
+
+
+% Distance units
+\newcommand{\m}[0]{\text{\ m}}
+\newcommand{\cm}[0]{\text{\ cm}}
+\newcommand{\km}[0]{\text{\ km}}
+\newcommand{\pc}[0]{\text{\ pc}}
+\newcommand{\kpc}[0]{\text{\ kpc}}
+\newcommand{\Mpc}[0]{\text{\ Mpc}}
+\newcommand{\Gpc}[0]{\text{\ Gpc}}
+\newcommand{\lyr}[0]{\text{\ lyr}}
+\newcommand{\Rs}[0]{R_\odot}
+
+% Mass units
+\newcommand{\g}[0]{\text{\ g}}
+\newcommand{\kg}[0]{\text{\ kg}}
+\newcommand{\Ms}[0]{M_\odot}
+
+% Time units
+\newcommand{\s}[0]{\text{\ s}}
+\newcommand{\days}[0]{\text{\ days}}
+\newcommand{\yr}[0]{\text{\ yr}}
+\newcommand{\Hz}[0]{\text{\ Hz}}
+\newcommand{\kHz}[0]{\text{\ kHz}}
+\newcommand{\MHz}[0]{\text{\ MHz}}
+\newcommand{\GHz}[0]{\text{\ GHz}}
+\newcommand{\THz}[0]{\text{\ THz}}
+
+% Energy units
+\newcommand{\erg}[0]{\text{\ erg}}
+\newcommand{\J}[0]{\text{\ J}}
+\newcommand{\eV}[0]{\text{\ eV}}
+\newcommand{\meV}[0]{\text{\ meV}}
+\newcommand{\keV}[0]{\text{\ keV}}
+\newcommand{\MeV}[0]{\text{\ MeV}}
+\newcommand{\GeV}[0]{\text{\ GeV}}
+\newcommand{\TeV}[0]{\text{\ TeV}}
+
+% Force units
+\newcommand{\N}[0]{\text{\ N}}
+\newcommand{\dyn}[0]{\text{\ dyn}}
+
+% Power units
+\newcommand{\W}[0]{\text{\ W}}
+\newcommand{\Ls}[0]{L_\odot}
+
+% Temperature units
+\newcommand{\K}[0]{\text{\ K}}
+\newcommand{\degC}[0]{\text{\ \(^\circ\)C}}
+\newcommand{\degF}[0]{\text{\ \(^\circ\)F}}
+
+% Electromagnetic units
+\newcommand{\V}[0]{\text{\ V}}
+\newcommand{\kV}[0]{\text{\ kV}}
+\newcommand{\C}[0]{\text{\ C}}
+\newcommand{\esu}[0]{\text{\ esu}}
+\newcommand{\T}[0]{\text{\ T}}
+\newcommand{\G}[0]{\text{\ G}}
+
+
+\newcount\colveccount
+\newcommand*\colvec[1]{
+        \global\colveccount#1
+        \begin{pmatrix}
+        \colvecnext
+}
+\def\colvecnext#1{
+        #1
+        \global\advance\colveccount-1
+        \ifnum\colveccount>0
+                \\
+                \expandafter\colvecnext
+        \else
+                \end{pmatrix}
+        \fi
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{spacing}{1.1}
+
+\newpage
+
+% When problems are long, it may be desirable to put a \newpage or a
+% \clearpage before each homeworkProblem environment
+
+I worked with no one on this worksheet. It took about four hours.
+
+\subsection{Direct summation n-body code}
+
+First I familiarized myself with the code structure and the layout of the state vector. I then completed the code by implementing \texttt{NbodyRHS} and \texttt{NbodyRK4}. I then simulated the sun-earth system for two years, during which time the Earth's orbital radius increases slightly, going from 1.50\(\ee{13}\)~cm to 1.54\(\ee{13}\)~cm, an increase of 3\%. Increasing the number of time-steps by a factor of four leads to a decrease in this increase by a factor of four, indicating that this is a first-order effect. In my algorithm, during any time-step the position is updated by the velocity of the previous step and the velocity is updated by the acceleration of the previous step, which means that it requires two time steps for the acceleration to propagate through to the position. This means that the force vector is likely lagging behind the radial vector, allowing gravity to do work to the initially-circular orbit. This changes the energy of the orbit, leading to a change in orbital radius.
+
+After implementing \texttt{TotalEnergy}, we can inspect this change in energy over the course of the simulation, comparing two simulations with different time steps. The result is in Figure~1. We see that the change in energy is approximately linear with respect to time, and for a given time period the simulation with \(4\ee{4}\) time steps has its energy increase by a factor of \(\frac{1}{4}\) times the energy increase in the simulation with \(1\ee{4}\) time steps. This indicates that the energy growth is a first-order in time effect. Though it is not graphed, the same is implemented with Forward Euler and the energy graph looks identical, suggesting that this energy growth is independent of the integration scheme. Again, I think the lagging of the position-update relative to the velocity-update mentioned above is a likely candidate for this energy change.
+
+\begin{figure}[H]
+ \centering
+ \hspace{0cm} \includegraphics[width=0.8\textwidth]{sun_earth_energy.pdf}
+ \caption{Total mechanical energy of the sun-earth orbital system as a function of simulated time.}
+ \label{fig:sun_earth_energy}
+\end{figure} 
+
+I then used the same routine to evolve the system of stars with initial data in \texttt{sgrAstar.dat} for 100 years. The total energy of the system evolves as in Figure~2. As can be seen, the energy quickly shoots from negative to positive, then holds constant.
+
+\begin{figure}[H]
+ \centering
+ \hspace{0cm} \includegraphics[width=\textwidth]{sgrAstar_energy.pdf}
+ \caption{The total mechanical energy for the system of stars in \texttt{sgrAstar.dat} versus simulated time. \(1\ee{4}\) time steps were used.}
+ \label{fig:sgrAstar_energy}
+\end{figure} 
+
+We find that the final position of the first star in our simulation is completely different from that reported by Andrea Ghaz and Jessica Lu.
+
+\end{spacing}
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
