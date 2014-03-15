@@ -282,7 +282,9 @@ I then compared the simulation results at time \(t = 0.2\) for the piecewise-con
 
 \noindent \textbf{3.}
 
-I then compared the results of this 1D finite volume hydro code with the results of the 1D smooth particle hydrodynamics code from WS15 set up with the same initial conditions. The reconstruction method for the finite volume hydro code that produces a density profile closest to the analytic result is TVD-minmod, as can be seen from Figure~6. I compare the TVD-minmod result (Figure~7) to the SPH result (Figure~8) at \(t = 0.2\) below. These produce extremely disparate results; while the finite volume hydro code decreases in density monotonically moving from left to right, the SPH code results in a large local maximum in density at the location where the shock discontinuity is in the finite volume code. \\
+I then compared the results of this 1D finite volume hydro code with the results of the 1D smooth particle hydrodynamics code from WS15 set up with the same initial conditions. The reconstruction method for the finite volume hydro code that produces a density profile closest to the analytic result is TVD-minmod, as can be seen from Figure~6. I compare the TVD-minmod result (Figure~7) to the SPH result (Figure~8) at \(t = 0.2\) below. These produce extremely disparate results; while the finite volume hydro code decreases in density monotonically moving from left to right, the SPH code results in a large local maximum in density at the location where the shock discontinuity is in the finite volume code. 
+
+I couldn't get my Fortran compiler to work, so I'm skipping that part.\\
 
 \noindent \textbf{4.}
 
